@@ -1,15 +1,15 @@
-FROM alpine/git AS build
+FROM alpine/git AS builder
 
 RUN mkdir -p /tmp/cloudacademy/globe
 RUN git clone https://github.com/cloudacademy/webgl-globe /tmp/cloudacademy/globe
 
-FROM nginx
+FROM nginx AS runtime
 
 COPY ./deploy.sh /tmp/
 RUN chmod +x /tmp/deploy.sh
 
 RUN mkdir -p /tmp/cloudacademy/globe
-COPY --from=build /tmp/cloudacademy/globe /tmp/cloudacademy/globe
+COPY --from=builder /tmp/cloudacademy/globe /tmp/cloudacademy/globe
 
 EXPOSE 80
 
