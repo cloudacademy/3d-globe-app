@@ -3,7 +3,7 @@ FROM alpine/git AS builder
 RUN mkdir -p /tmp/cloudacademy/globe
 RUN git clone https://github.com/cloudacademy/webgl-globe /tmp/cloudacademy/globe
 
-FROM nginx AS runtime
+FROM nginx:1.20 AS runtime
 
 COPY ./deploy.sh /tmp/
 RUN chmod +x /tmp/deploy.sh
