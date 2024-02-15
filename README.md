@@ -3,3 +3,5 @@
 
 ## Containerized 3D WebGL Globe Web App
 This repository contains example source code used to containerize the 3D WebGL globe web application.
+
+![3D Globe](https://raw.githubusercontent.com/cloudacademy/webgl-globe/main/docs/images/image9.png)
